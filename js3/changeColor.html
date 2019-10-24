@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: orange;
+        }
+    </style>
+    <script>
+        function changeColor(color) {
+            var oDiv = document.getElementById('div1');
+            oDiv.style.background = color;
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="变红" onclick="changeColor('red')">
+    <input type="button" value="变绿" onclick="changeColor('green')">
+    <input type="button" value="变蓝" onclick="changeColor('blue')">
+    <div id="div1"></div>
+
+</body>
+
+</html>

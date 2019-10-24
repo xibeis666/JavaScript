@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 300px;
+            background: blue;
+            }
+            .day{
+                background: red;
+                font-size: 12px;
+            }
+            .night{
+                background: black;
+                font-size: 22px;
+            }
+    </style>
+    <script>
+        function showDay(){
+            document.body.className= 'day';
+        }
+        function showNight(){
+            document.body.className = 'night';
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="白天" onclick="showDay()">
+    <input type="button" value="黑夜" onclick="showNight()">
+    <div id="div1">
+            课程特点
+            1.综合讲解，不单单是基础知识，实操、案例、面试题通通都有；
+            2.享受讲师答疑特权；
+    </div>
+</body>
+</html>

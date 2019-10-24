@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var oTime = document.getElementById('time');
+            var oStart = document.getElementById('start');
+            var oStop = document.getElementById('stop');
+            var timer = null;
+            function toDou(n) {
+                return n < 10 ? '0' + n : '' + n
+            }
+            oStart.onclick = function () {
+                var s = 0;
+                clearInterval(timer);
+                timer = setInterval( function() {
+                    s++
+                    oTime.value = toDou(parseInt(s / 60)) + ':' + toDou(s % 60);
+                }, 1000);
+            };
+            oStop.onclick = function () {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="time" value="00:00">
+    <input type="button" value="开始" id="start">
+    <input type="button" value="停止" id="stop">
+</body>
+
+</html>
