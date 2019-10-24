@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box .on {
+            background: red;
+        }
+
+        #box div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBox = document.getElementById('box');
+            var oBtn = oBox.getElementsByTagName('input');
+            var aDiv = oBox.getElementsByTagName('div');
+            var oPrev = document.getElementById('prev');
+            var oNext = document.getElementById('next');
+            var iNow = 0;
+            var timer = null;
+            
+            for (var i = 0; i < oBtn.length; i++) {
+                oBtn[i].index = i;
+                oBtn[i].onclick = function () {
+                    iNow = this.index;
+                    tab();
+                };
+            }
+
+            
+            // 下一个播放
+            oNext.onclick = fnNext();
+            
+            function  fnNext() {
+                for (var i = 0; i < oBtn.length; i++) {
+                    oBtn[i].className = '';
+                    aDiv[i].style.display = 'none';
+                }
+                iNow++;
+                if (iNow == oBtn.length) { iNow = 0; }
+                tab();
+            };
+            // 上一个播放
+            oPrev.onclick = function () {
+                
+                iNow--
+                if (iNow == -1) { iNow = oBtn.length - 1; }
+                tab();
+            }
+            function tab() {
+                for (var i = 0; i < oBtn.length; i++) {
+                    oBtn[i].className = '';
+                    aDiv[i].style.display = 'none';
+                }
+                oBtn[iNow].className = 'on';
+                aDiv[iNow].style.display = 'block';
+            }
+            clearInterval(timer);
+            timer = setInterval(function() {
+                fnNext();
+            }, 1000);
+            oBox.onmouseover = function() {
+                clearInterval(timer);
+            };
+            oBox.onmouseout = function() {
+                timer = setInterval(function() {
+                fnNext();
+                }, 1000);
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <a href="javascript:;" id="prev">
+            <-</a> <input type="button" value="aaa" class="on">
+                <input type="button" value="bbb">
+                <input type="button" value="ccc">
+                <a href="javascript:;" id="next">-></a>
+                <div style="display: block;">aaa</div>
+                <div>bbb</div>
+                <div>ccc</div>
+    </div>
+</body>
+
+</html>
