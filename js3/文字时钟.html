@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var oP = document.getElementById('op');
+            var timer = null;
+            function tuDou(n) {
+                return n < 10 ? '0' + n : '' + n;
+            }
+            function time() {
+                var xingqi = ['日', '一', '二', '三', '四', '五', '六'];
+                var oDate = new Date();
+                var year = oDate.getFullYear();
+                var month = oDate.getMonth();
+                var date = oDate.getDate();
+                var w = oDate.getDay();
+                var h = oDate.getHours();
+                var min = oDate.getHours();
+                var sec = oDate.getSeconds();
+                oP.innerHTML = year + '年' + tuDou(month) + '月' + tuDou(date) + '日' +
+                    tuDou(h) + ':' + tuDou(min) + ':' + tuDou(sec) + '星期' + xingqi[w];
+            }
+            time();
+            clearInterval(timer);
+            setInterval(time, 1000);
+        };
+    </script>
+</head>
+
+<body>
+    <p id="op">
+
+
+    </p>
+</body>
+
+</html>
