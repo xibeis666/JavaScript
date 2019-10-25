@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var Obtn = document.getElementById('btn');
+            Obtn.onclick = function () {
+                var _this = this;
+                setTimeout(function () {
+                    // 定时器的this是window  alert(this.value);
+                    alert(_this.value);
+                }, 1000);
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" id="btn" value="aaa">
+</body>
+
+</html>
