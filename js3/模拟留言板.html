@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oB = document.getElementById('btn');
+            var oM = document.getElementById('message_text');
+            var oName = document.getElementById('name');
+            var oC = document.getElementById('content');
+
+            oB.onclick = function () {
+                if (oName.value == '' || oC.value == '') {
+                    alert('input please');
+                    return;
+                }
+                var oLi = document.createElement('li');
+                oLi.innerHTML = '<h3>' + oName.value + '</h3><p>' + oC.value + '</p>';
+                if (oM.children == 0) {
+                    oM.appendChild(oLi);
+                } else {
+                    oM.insertBefore(oLi, oM.children[0]);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="fill_in">
+            <li>姓名：<input type="text" name="" id="name"></li>
+            <li>内容：<textarea name="" id="content" cols="30" rows="10"></textarea></li>
+            <li><input type="button" id="btn" value="提交"></li>
+        </ul>
+        <h2>留言内容</h2>
+        <ul id="message_text" style="display: block;">
+        </ul>
+    </div>
+
+</body>
+
+</html>
