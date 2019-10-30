@@ -1,0 +1,42 @@
+匿名函数自执行
+（function() {
+
+})();
+
+查:
+    获取元素父节点 parentNode
+    获取元素子节点 children (数组)
+    首尾子节点
+        firstChild (IE) firstElementChild (火狐，谷歌);
+        lastChild (IE) lastElementChild (火狐，谷歌)
+        兼容性写法：
+        var first = 父节点.firstElementChild || 父节点.firstChild
+    获取兄弟节点
+        nextSibling (IE) nextElementSibling(火狐，谷歌)
+        previousSibling (IE) previousElementSibling (火狐，谷歌)
+改：
+    innerHTML
+    value
+删：
+    父节点.removeChild(子元素);
+增(创建节点):
+    document.createElement
+
+
+1.关于物体信息
+    宽： offsetWidth
+    高： offsetHeight
+    位置：offsetLeft
+2.滚动距离
+    document.documentElement.scrollTop || document.body.scrollTop
+3.可视区宽高
+    document.documentElement.clientWidth
+    document.documentElement.clientHeight
+4.滚动事件
+    onscroll
+6.浏览器判断
+    window.navigator.userAgent.indexOf('MSIE 6.0') != -1
+
+    <html lang="en">
+    en:英文
+    zh-CN:中文
